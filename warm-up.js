@@ -4,11 +4,17 @@
 
 // From there, add each and every number from the array.
 
+let numbers = [];
 
+for (let i = 0; i <= 50; i++) {
+  numbers.push(i);
+}
+numbers = numbers.filter((num) => {
+  return num % 2 != 0;
+});
 
-let numbers = []
-
-  function newArray{
-  for (let i = 0; i = 50; i++);
-    console.log(newArray);
- }
+for (let i = 0, i < numbers.length, i++){
+    sum += numbers[i];
+}
+console.log (numbers);
+console.log(sum)
