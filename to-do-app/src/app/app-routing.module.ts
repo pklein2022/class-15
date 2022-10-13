@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 import { ToDoListComponent } from './to-do-list/to-do-list.component';
 import { ToDoFormComponent } from './to-do-form/to-do-form.component';
@@ -10,7 +9,7 @@ const appRoutes: Routes = [
   },
   {
     path: 'to-do-list', component: ToDoListComponent, children: [
-      {path: 'to-do-form', component: ToDoFormComponent},
+      { path: 'to-do-form', component: ToDoFormComponent },
     ]
   },
 ]
