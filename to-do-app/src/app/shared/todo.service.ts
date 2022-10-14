@@ -1,15 +1,16 @@
 import { EventEmitter, Injectable } from '@angular/core';
+import { Subject } from 'rxjs';
 import { Todo } from './todo.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TodoService {
-  todosChanged = new EventEmitter<Todo[]>();
+  todosChanged = new Subject<Todo[]>();
   private todos: Todo[] = [
-    new Todo("Homework"),
-    new Todo("Dishes"),
-    new Todo("Clean bathroom"),
+    new Todo("Homework", false),
+    new Todo("Dishes", false),
+    new Todo("Clean bathroom", false),
   ]
 
   getTodos() {
@@ -22,12 +23,16 @@ export class TodoService {
 
   addTodo(todo: Todo) {
     this.todos.push(todo);
-    this.todosChanged.emit(this.getTodos());
+    this.todosChanged.next(this.getTodos());
   }
 
   removeTodo(index: number) {
     this.todos.splice(index, 1);
-    this.todosChanged.emit(this.getTodos());
+    this.todosChanged.next(this.getTodos());
+  }
+  todoCompleted(index: number) {
+    this.todos.splice(index, 1);
+    this.todosChanged.next(this.getTodos());
   }
   constructor() { }
 }

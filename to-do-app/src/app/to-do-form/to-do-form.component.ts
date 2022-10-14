@@ -19,7 +19,7 @@ export class ToDoFormComponent implements OnInit {
 
   onAddItem(){
     const todoAction = this.actionInputRef.nativeElement.value;
-    const newTodo = new Todo(todoAction);
+    const newTodo = new Todo(todoAction, false);
     this.todoService.addTodo(newTodo);
     // Go back to To Do List after adding item
     this.router.navigate(['to-do-list']);

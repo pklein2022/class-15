@@ -1,6 +1,8 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
-    <a class="navbar-brand ms-5 text-uppercase" href="#">To Do List</a>
+    <a class="navbar-brand ms-5 text-uppercase" routerLink="to-do-list">To Do List</a>
+    <a class="navbar-brand ms-5 text-uppercase" routerLink="completed-list">Completed Items List</a>
+
     <button
       class="navbar-toggler"
       type="button"
@@ -14,7 +16,7 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarText">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0"></ul>
-      <span class="navbar-text me-5"> Count of To Do Items: {{todoCount}} </span>
+      <span class="navbar-text me-5"> Number of To Dos: {{ todoCount }} </span>
     </div>
   </div>
 </nav>
