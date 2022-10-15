@@ -20,7 +20,7 @@ export class ToDoComponent implements OnInit {
 
   }
   onCompletedItem(index: number){
-    this.todoService.removeTodo(index);
+    this.todoService.todoCompleted(index);
   }
 
 }

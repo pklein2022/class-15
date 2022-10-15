@@ -3,8 +3,8 @@
     <p class="card-text">
       {{ todo.action }}
     </p>
-    <a class="btn btn-danger" (click)="onDeleteItem(index)">Delete</a>
-    <a class="btn btn-success" (click)="onCompletedItem(index)">Completed</a>
+    <a class="btn btn-danger" *ngIf="!todo.todoCompleted" (click)="onDeleteItem(index)">Delete</a>
+    <a class="btn btn-success" *ngIf="!todo.todoCompleted" (click)="onCompletedItem(index)">Completed</a>
 
   </div>
 </div>

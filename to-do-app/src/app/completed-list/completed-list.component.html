@@ -1,10 +1,12 @@
-
+<h1>Completed Items</h1>
 <div class="container">
   <div class="row">
     <div class="col-8">
-  <router-outlet></router-outlet>
+      <div *ngFor="let todoItem of todoList; index as i">
+        <app-to-do [todo]="todoItem" [index]="i"></app-to-do>
+      </div>
 
-
+      <router-outlet></router-outlet>
     </div>
   </div>
 </div>

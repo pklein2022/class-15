@@ -14,7 +14,19 @@ export class TodoService {
   ]
 
   getTodos() {
-    return this.todos.slice();
+    return this.todos.filter(this.checkNotCompleted).slice();
+  }
+
+  getCompletedTodos() {
+    return this.todos.filter(this.checkCompleted).slice();
+  }
+
+  checkCompleted(todo:Todo){
+    return todo.todoCompleted;
+  }
+
+  checkNotCompleted(todo: Todo) {
+    return !todo.todoCompleted;
   }
 
   getTodoCount() {
@@ -31,7 +43,10 @@ export class TodoService {
     this.todosChanged.next(this.getTodos());
   }
   todoCompleted(index: number) {
+    let currentTodo = this.todos[index];
     this.todos.splice(index, 1);
+    currentTodo.todoCompleted = true;
+    this.todos.push(currentTodo);
     this.todosChanged.next(this.getTodos());
   }
   constructor() { }
